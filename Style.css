@@ -1,0 +1,118 @@
+/* Reset bawaan browser */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Tampilan umum halaman */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    padding: 20px;
+    color: #333;
+}
+
+/* Header */
+.header {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+.header #jam {
+    font-size: 36px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.header #tanggal {
+    font-size: 14px;
+    margin-top: 4px;
+    color: #bdc3c7;
+}
+
+/* Card */
+.card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.card h2 {
+    font-size: 16px;
+    margin-bottom: 12px;
+    color: #2c3e50;
+}
+
+/* Card kelas berikutnya */
+#nama-matkul {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+#jam-matkul, #ruangan {
+    font-size: 13px;
+    color: #777;
+    margin-top: 4px;
+}
+
+#countdown {
+    font-size: 22px;
+    font-weight: bold;
+    color: #e74c3c;
+}
+
+/* List jadwal */
+#list-jadwal {
+    list-style: none;
+    padding: 0;
+}
+
+#list-jadwal li {
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 14px;
+    color: #555;
+}
+
+#list-jadwal li:last-child {
+    border-bottom: none;
+}
+
+/* Form tambah jadwal */
+.card input,
+.card select {
+    width: 100%;
+    padding: 8px 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.card button {
+    width: 100%;
+    padding: 10px;
+    background-color: #2c3e50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.card button:hover {
+    background-color: #34495e;
+}

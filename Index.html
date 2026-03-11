@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Class Reminder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header: Jam & Tanggal -->
+    <div class="header">
+        <h1>🎓 Smart Class Reminder</h1>
+        <p id="jam">--:--:--</p>
+        <p id="tanggal">Memuat tanggal...</p>
+    </div>
+
+    <!-- Kelas Berikutnya -->
+    <div class="card">
+        <h2>⏰ Kelas Berikutnya</h2>
+        <p id="nama-matkul">-</p>
+        <p id="jam-matkul">-</p>
+        <p id="ruangan">-</p>
+        <p>Berangkat dalam: <span id="countdown">--:--:--</span></p>
+    </div>
+
+    <!-- Jadwal Hari Ini -->
+    <div class="card">
+        <h2>📅 Jadwal Hari Ini</h2>
+        <ul id="list-jadwal">
+            <li>Belum ada jadwal</li>
+        </ul>
+    </div>
+
+    <!-- Tambah Jadwal -->
+    <div class="card">
+        <h2>➕ Tambah Jadwal</h2>
+        <input type="text" id="input-matkul" placeholder="Nama mata kuliah">
+        <select id="input-hari">
+            <option value="1">Senin</option>
+            <option value="2">Selasa</option>
+            <option value="3">Rabu</option>
+            <option value="4">Kamis</option>
+            <option value="5">Jumat</option>
+        </select>
+        <input type="time" id="input-jam-mulai">
+        <input type="time" id="input-jam-selesai">
+        <input type="text" id="input-ruangan" placeholder="Ruangan">
+        <button onclick="tambahJadwal()">Simpan</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
