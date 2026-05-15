@@ -289,7 +289,7 @@ body {
 }
 
 .form-card {
-    background: #fff;
+    background: #1b3a28;
     border: 1px solid #c8e6c9;
     border-radius: 1.5rem;
     padding: 2rem;
@@ -301,7 +301,7 @@ body {
 .form-judul {
     font-size: 1.2rem;
     font-weight: 600;
-    color: #1b3a28;
+    color: #ffffff;
     display: flex;
     align-items: center;
     gap: 0.4rem;
@@ -327,7 +327,7 @@ body {
 .form-group label {
     font-size: 0.88rem;
     font-weight: 500;
-    color: #1b3a28;
+    color: #ffffff;
 }
  
 .form-group input,
@@ -361,7 +361,7 @@ body {
  
 .tombol-tambah {
     margin-top: 1.5rem;
-    background-color: #1b3a28;
+    background-color: #2d9e6b;
     color: #fff;
     font-family: 'Poppins', sans-serif;
     font-size: 1rem;
@@ -439,6 +439,7 @@ body {
 .jadwal-row {
     background: #fff;
     border: 1px solid #c8e6c9;
+    border-left: 4px solid #52b788;
     border-radius: 1rem;
     padding: 1rem 1.3rem;
     margin-bottom: 0.6rem;
@@ -504,7 +505,7 @@ body {
 /*pengaturan*/
 /*setingan buat card*/
 .sett-card {
-    background: #fff;
+    background: #1b3a28;
     border: 1px solid #c8e6c9;
     border-radius: 1.5rem;
     padding: 2rem;
@@ -516,7 +517,7 @@ body {
 .sett-judul {
     font-size: 1.2rem;
     font-weight: 600;
-    color: #1b3a28;
+    color: #ffffff;
     display: flex;
     align-items: center;
     gap: 0.4rem;
@@ -525,7 +526,7 @@ body {
  
 .sett-desc {
     font-size: 0.88rem;
-    color: #666;
+    color: #ffffff;
     margin-bottom: 1.5rem;
     line-height: 1.6;
 }
@@ -616,7 +617,7 @@ body {
  
 /*Tombol simpan*/
 .btn-simpan {
-    background-color: #1b3a28;
+    background-color: #2d9e6b;
     color: #fff;
     font-family: 'Poppins', sans-serif;
     font-size: 1rem;
@@ -645,13 +646,13 @@ body {
     padding: 0.6rem 0;
     border-bottom: 1px solid #f0f0f0;
     font-size: 0.92rem;
-    color: #444;
+    color: #ffffff;
 }
  
 .info-row:last-child { border-bottom: none; }
  
 .info-icon {
-    color: #2d9e6b;
+    color: #ffffff;
     font-size: 1.2rem !important;
 }
 
