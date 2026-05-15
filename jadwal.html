@@ -1,34 +1,128 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title> Smart Class Reminder </title>
-        <link rel="stylesheet" href="style.css" />
-    </head>
+        <!-- fonts -->
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500;700&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        
+        <!-- icon -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">   
+
+         <link rel="stylesheet" href="style.css" />
+    
+        
+        </head>
     <body>
-        <div class="container">
+        <div class="wrapper">
         <!-- Navigation bar -->
+        <nav class = "nav">
+            <a href="#" class="navbar-logo"> <span class="material-icons ">school</span> Smart Class Reminder </a>
         <div class="navbar">
-            <ul class="ul-navbar">
-                <li class="li-navbar"> <a href="index.html" class="a-navbar">Home</a> </li>
-                <li class="li-navbar"> 
-                    <a href="jadwal.html"class="a-navbar">Jadwal</a> 
-                </li>
-                <li class="li-navbar"> <a href= "pengaturan.html"class="a-navbar"> Pengaturan </a></li>
-            </ul>
+            <a href="index.html" >Home</a>
+            <a href="jadwal.html">Jadwal</a> 
+            <a href= "pengaturan.html"> Pengaturan </a>
         </div>
+
+        <div class="navbar-icons">
+            <a href="#" > <span class="material-icons burger-icons">menu</span> </a>
+        </div>
+        </nav>
         <!-- Navigation bar selesai -->
         
         <!-- content 1 -->
-        <div class="content-1">
-            <h1 class="content-1-h1"> Smart Class Reminder </h1>
+        <div class="content">
+            <!--header  -->
+            <div class ="page-header">
+                <h1 class="page-title">
+                    <span class="material-icons">schedule</span>
+                    Jadwal Kuliah
+                </h1>
+                <p class="page-sub">Tambahkan Jadwal Kuliah mu di sini!</p>
+            </div>
+            <!-- buattambah jadwal-->
+            <div class="form-card">
+                <h2 class="form-judul">
+                    <span class="material-icons">add_circle</span>
+                    Tambah Jadwal Kuliah
+                </h2>
+                <div class="form-grid">
+                    <div class="form-group full">
+                        <label for="input-matkul">Nama Mata Kuliah</label>
+                        <input type="text" id="input-matkul" placeholder="Contoh: Algoritma dan Pemrograman"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="input-hari">Hari</label>
+                        <select id="input-hari">
+                            <option value="">Pilih Hari</option>
+                            <option value="0">Minggu</option>
+                            <option value="1">Senin</option>
+                            <option value="2">Selasa</option>
+                            <option value="3">Rabu</option>
+                            <option value="4">Kamis</option>
+                            <option value="5">Jumat</option>
+                            <option value="6">Sabtu</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="input-ruangan">Ruangan</label>
+                        <input type="text" id="input-ruangan" placeholder="Contoh: R.01"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="input-jam-mulai">Jam Mulai</label>
+                        <input type="time" id="input-jam-mulai" />
+                    </div>
+                    <div class="form-group">
+                        <label for ="input-jam-selesai">Jam Selesai</label>
+                        <input type="time" id="input-jam-selesai"/>
+                    </div>
+                </div>
+                <div id="form-error" class="form-error" style = "display:none;"></div> 
+            <button class="tombol-tambah" id="tombol-tambah">
+                <span class="material-icons">add</span>
+                Tambah Jadwal 
+            </button>
+            </div>
+
+            <!--notif ninung ninung-->
+            <div class="toast" id="toast"></div>
+
+            <!-- list jadwalll-->
+             <div class="list-section">
+                <h2 class="list-judul">
+                    <span class="material-icons">list</span>
+                    Daftar Jadwal Kuliah
+                </h2>
+                <div id="list-jadwal">
+                    
+                </div>
+             </div>
+            </div>
         </div>
         <!-- content 1 selesai -->
 
+        </div>
         <!-- footer -->
-        <div class="footer">
-            <h3 class="footer-h3"> Smart Class Reminder </h3>
+        <footer>
+    <div class="footer">
+        <div class="footer-logo"> 
+            <span class="material-icons">school</span> 
+            Smart Class Reminder 
         </div>   
+        <div class="footer-description">
+            <p>Aplikasi pengingat jadwal kuliah</p>
+        </div>
+        <div class="footer-created">
+            <p>created by <a href="#">Nasywa Fawwaz</a> | &copy; 2026</p>
+            <p>Tugas Mata Kuliah Algoritma dan Pemrograman</p>
+        </div>
+    </div>
+        </footer>
         <!-- footer selesai -->
         </div>
+        <!-- javascript -->
+            <script src="jadwal.js" ></script>
     </body>
 </html>

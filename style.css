@@ -10,11 +10,16 @@ html {
 
 body {
     font-family: 'poppins', sans-serif;
-    color : #fff;
+    color : #f5faf6;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
   
+}
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* Navigation Bar */
@@ -34,6 +39,10 @@ body {
     color : white;
     font-size : 1.5rem;
     font-weight : 500;
+}
+
+.nav .navbar {
+    margin-left: auto;
 }
 
 .nav .navbar a {
@@ -69,20 +78,589 @@ body {
     display : none;
 }
 
-.content-1 {
-    background-color :#f5faf6;
-    display : flex;
-    justify-content : center;
-    align-items : center;
-    height : 80vh;
+.content{
     flex: 1;
 }
+/* Hero Section */
 
+.hero-section {
+    display : flex;
+    flex-direction : column;
+    justify-content : flex-start;
+    align-items : center;
+    min-height : 60vh;
+    padding-top: 5rem;
+}
+
+.greeting {
+    font-size : 1.5rem;
+    color : #0a6830;
+    margin-top : 4rem;
+}
+
+.jam {
+    font-size : 3rem;
+    font-weight: bold;
+    color : #1a1a1a;
+    margin-top : 0.5rem;
+}
+
+.tanggal {
+    font-size : 1.2rem;
+    color : #457f5d;
+    margin-top : 0.5rem;
+}
+
+/*Jadwal Section */
+.jadwal-next {
+    background-color :#122318;
+    color: #f5faf6;
+    padding : 2rem;
+    justify-content : flex-start;
+    align-items : center;
+    width: 80%;
+    margin: 2rem auto;
+    border-radius: 1.5rem;
+    margin-top: 2rem;
+}
+
+.kelas-berikutnya{
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.nama-matkul{
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+.jam-kelas{
+    font-size: 1rem;
+    color: #edf7f1;
+    margin-bottom: 0.3rem;
+}
+
+.ruangan-kelas{
+    font-size: 1rem;
+    color: #edf7f1;
+    margin-bottom: 1.5rem;
+}
+
+.countdown{
+    border-top: 0.1rem solid rgba(255,255,255,0.3);
+    padding-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.countdown p{
+    font-size: 1rem;
+    color: #edf7f1;
+}
+
+.countdown-timer{
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.countdown-timer.oranye { color: #ffb347; }
+.countdown-timer.merah  { color: #ff4d4d; }
+
+.jadwal-hari-ini,
+.jadwal-besok-wrap {
+    width: 80%;
+    margin: 1rem auto;
+}
+
+/* Tombol Matikan Alarm */
+#btn-matikan-alarm {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 1rem;
+    width: 100%;
+    justify-content: center;
+    padding: 0.65rem 1.2rem;
+    background-color: #ff4d4d;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    border: none;
+    animation: pulseAlarm 1.2s ease-in-out infinite;
+    transition: background-color 0.2s, transform 0.1s;
+}
+ 
+#btn-matikan-alarm:hover  { background-color: #cc0000; }
+#btn-matikan-alarm:active { transform: scale(0.97); animation: none; }
+ 
+@keyframes pulseAlarm {
+    0%   { box-shadow: 0 0 0 0 rgba(255, 77, 77, 0.6); }
+    70%  { box-shadow: 0 0 0 10px rgba(255, 77, 77, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 77, 77, 0); }
+}
+
+/* Jadwal*/
+.sub-judul {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1b3a28;
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+}
+
+.kosong-text{
+    color:#888888;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.jadwal-item{
+    background-color: #c8e6c9;
+    padding: 1rem 1.3rem;
+    border-radius: 1rem;
+    margin-bottom:0.8rem;
+    transition : 0.3s;
+}
+
+.jadwal-item.item-selesai {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.jadwal-item.item-besok{
+    border-left: 4px solid #52b788;
+}
+.jadwal-item .matkul{
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #122318;
+    margin-bottom: 0.3rem;
+}
+
+.jadwal-item .detail{
+    font-size : 0.95rem;
+    color: #001a0a;
+    margin-bottom: 0.4rem;
+}
+
+.jadwal-item .status{
+    margin-top: 0.5rem;
+    font-size: 0.9 rem;
+    font-weight: 500;
+}
+
+.status-selesai    { color: #250000; }
+.status-berlangsung{ color: #2d9e6b; }
+.status-akan       { color: #3a7bd5; }
+
+/*pengaturan */
+/* bagian header*/
+.page-header {
+    display : flex;
+    flex-direction : column;
+    justify-content : flex-start;
+    align-items : center;
+    text-align: center;
+    padding: 11rem 7% 2rem 7%;
+}
+ 
+.page-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #122318;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+ 
+.page-sub {
+    font-size: 1rem;
+    color: #888;
+    margin-top: 0.4rem;
+}
+
+.form-card {
+    background: #fff;
+    border: 1px solid #c8e6c9;
+    border-radius: 1.5rem;
+    padding: 2rem;
+    width: 80%;
+    margin: 1rem auto 2rem auto;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+ 
+.form-judul {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1b3a28;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 1.5rem;
+}
+ 
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+ 
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+ 
+.form-group.full {
+    grid-column: 1 / -1;
+}
+ 
+.form-group label {
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: #1b3a28;
+}
+ 
+.form-group input,
+.form-group select {
+    padding: 0.6rem 0.9rem;
+    border: 1.5px solid #c8e6c9;
+    border-radius: 0.6rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    color: #1a1a1a;
+    background: #f5faf6;
+    transition: border-color 0.2s;
+}
+ 
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #2d9e6b;
+    background: #fff;
+    outline: none;
+}
+ 
+.form-error {
+    color: #e53935;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    padding: 0.5rem 0.8rem;
+    background: #fff3f3;
+    border-radius: 0.5rem;
+    border-left: 3px solid #e53935;
+}
+ 
+.tombol-tambah {
+    margin-top: 1.5rem;
+    background-color: #1b3a28;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.75rem 1.8rem;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: background-color 0.2s, transform 0.1s;
+}
+ 
+.tombol-tambah:hover {
+    background-color: #2d9e6b;
+}
+ 
+.tombol-tambah:active {
+    transform: scale(0.97);
+}
+ 
+.toast {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(4rem);
+    background: #1b3a28;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 2rem;
+    font-size: 0.9rem;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 9999;
+    pointer-events: none;
+}
+ 
+.toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+ 
+/*jadwall*/
+.list-section {
+    width: 80%;
+    margin: 0 auto 3rem auto;
+}
+ 
+.list-judul {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1b3a28;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 1.2rem;
+}
+ 
+/* Per-hari group */
+.hari-group {
+    margin-bottom: 1.5rem;
+}
+ 
+.hari-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #2d9e6b;
+    margin-bottom: 0.6rem;
+    padding-left: 0.2rem;
+}
+ 
+/* Item jadwal di halaman jadwal */
+.jadwal-row {
+    background: #fff;
+    border: 1px solid #c8e6c9;
+    border-radius: 1rem;
+    padding: 1rem 1.3rem;
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    transition: box-shadow 0.2s;
+}
+ 
+.jadwal-row:hover {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+}
+ 
+.jadwal-row-info .matkul {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #122318;
+    margin-bottom: 0.2rem;
+}
+ 
+.jadwal-row-info .detail {
+    font-size: 0.85rem;
+    color: #888;
+}
+ 
+.tombol-hapus {
+    background: none;
+    color: #e53935;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.4rem 0.9rem;
+    border-radius: 0.5rem;
+    border: 1.5px solid #e53935;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    transition: background 0.2s, color 0.2s;
+    flex-shrink: 0;
+}
+ 
+.tombol-hapus:hover {
+    background: #e53935;
+    color: #fff;
+}
+ 
+/* Kosong */
+.jadwal-kosong {
+    text-align: center;
+    color: #014201;
+    font-size: 0.95rem;
+    padding: 2rem 0;
+}
+ 
+/* nav-active */
+.nav-active {
+    color: #52b788 !important;
+    font-weight: 600;
+}
+
+/*pengaturan*/
+/*setingan buat card*/
+.sett-card {
+    background: #fff;
+    border: 1px solid #c8e6c9;
+    border-radius: 1.5rem;
+    padding: 2rem;
+    width: 80%;
+    margin: 1rem auto 1.5rem auto;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+ 
+.sett-judul {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1b3a28;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 0.5rem;
+}
+ 
+.sett-desc {
+    font-size: 0.88rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+ 
+/*setingan item*/
+.sett-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+ 
+.sett-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    background: #f5faf6;
+    border: 1px solid #c8e6c9;
+    border-radius: 1rem;
+    padding: 1rem 1.3rem;
+}
+ 
+.sett-item-info {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+ 
+.sett-icon {
+    color: #2d9e6b;
+    font-size: 1.8rem !important;
+}
+ 
+.sett-label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #122318;
+}
+ 
+.sett-hint {
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 0.1rem;
+}
+ 
+.sett-input-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+ 
+.sett-input-wrap input {
+    width: 5rem;
+    padding: 0.5rem 0.7rem;
+    border: 1.5px solid #c8e6c9;
+    border-radius: 0.6rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #122318;
+    background: #fff;
+    text-align: center;
+    transition: border-color 0.2s;
+}
+ 
+.sett-input-wrap input:focus {
+    border-color: #2d9e6b;
+    outline: none;
+}
+ 
+.sett-unit {
+    font-size: 0.88rem;
+    color: #888;
+}
+ 
+/*preview*/
+.sett-preview {
+    background: #e8f5e9;
+    border-left: 4px solid #2d9e6b;
+    border-radius: 0.6rem;
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+    color: #1b3a28;
+    margin-bottom: 1.5rem;
+}
+ 
+/*Tombol simpan*/
+.btn-simpan {
+    background-color: #1b3a28;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.75rem 1.8rem;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: background-color 0.2s, transform 0.1s;
+}
+ 
+.btn-simpan:hover  { background-color: #2d9e6b; }
+.btn-simpan:active { transform: scale(0.97); }
+ 
+/*INFO CARD*/
+.sett-info-card {
+    border-color: #e0e0e0;
+}
+ 
+.info-row {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 0.92rem;
+    color: #444;
+}
+ 
+.info-row:last-child { border-bottom: none; }
+ 
+.info-icon {
+    color: #2d9e6b;
+    font-size: 1.2rem !important;
+}
+
+/*footer*/
 .footer {
     background-color: #1b3a28;
     text-align : center;
     padding : 1rem 0;
-    margin-top: 3rem;
+    margin-top: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -91,7 +669,7 @@ body {
 
 .footer .footer-logo{
     color :#fff;
-    font-size :1 rem;
+    font-size :1rem;
     display: flex;
 }
 
@@ -112,7 +690,7 @@ body {
     color : #52b788;
 }
 
-    /* media queries */
+/* media queries */
 
 /* laptop */
 @media (max-width : 1366px) {
@@ -133,7 +711,7 @@ body {
         top : 100%;
         right : -100%;
         background-color : #1b3a28;
-        width: 30 rem;
+        width: 30rem;
         height : 100vh;
         transition : 0.3s;
         padding-right : 3rem;
@@ -165,6 +743,11 @@ body {
         transition : 0.3s;
     }
    }
+    .hero-section {
+        min-height: auto; 
+        padding-top: 7rem;
+        padding-bottom: 2rem;
+    }
 
 /* hp */
 @media (max-width : 450px) {
@@ -172,3 +755,8 @@ body {
         font-size : 55%;
     }
    }
+   .hero-section {
+        min-height: auto; 
+        padding-top: 7rem;
+        padding-bottom: 2rem;
+    }

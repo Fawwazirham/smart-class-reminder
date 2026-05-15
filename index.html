@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title> Smart Class Reminder </title>
         <!-- fonts -->
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,6 +16,7 @@
         
         </head>
     <body>
+        <div class="wrapper">
         <!-- Navigation bar -->
         <nav class = "nav">
             <a href="#" class="navbar-logo"> <span class="material-icons ">school</span> Smart Class Reminder </a>
@@ -30,10 +32,39 @@
         </nav>
         <!-- Navigation bar selesai -->
         
+        <div class="content">
         <!-- content 1 -->
-        <div class="content-1">
-            <h1 class="content-1-h1"> Smart Class Reminder </h1>
+        <!-- hero section -->
+        <div class="hero-section">
+         <div class="greeting" id="greeting"> Selamat Pagi!</div>
+         <div class="jam" id="jam">  
+         00:00:00 </div>
+         <div class="tanggal" id="tanggal"> 
+         00-00-0000 </div>
         </div>
+        <!-- hero section selesai -->
+        <!-- bagian jadwal mulai -->
+        <div class="jadwal-next">
+            <h2 class="kelas-berikutnya"> Kelas berikutnya: </h2>
+            <div class="jadwal-kelas">
+                <p class="nama-matkul" id="nama-matkul"> - </p>
+                <p class="jam-kelas" id="jam-kelas"> - </p>
+                <p class="ruangan-kelas" id="ruangan-kelas"> - </p>
+            </div>
+            <div class="countdown" id="countdown">
+                <p id="tulisan-berangkat">Berangkat dalam:</p>
+                <p class="countdown-timer" id="countdown-timer"> 00:00:00 </p>
+            </div>
+            
+        </div>
+        <!-- bagian jadwal selesai -->
+        <!-- list jadwal hari ini-->
+         <div class="jadwal-hari-ini" id="jadwal-hari-ini"></div>
+        <!-- jadwal hari ini selesai -->
+        <!-- jadwal besok-->
+        <div class="jadwal-besok-wrap" id="jadwal-besok"></div>
+        <!-- jadwal besok selesai -->
+         </div>
         <!-- content 1 selesai -->
 
         <!-- footer -->
@@ -56,5 +87,6 @@
         </div>
         <!-- javascript -->
             <script src="script.js" ></script>
+        </div>
     </body>
 </html>
