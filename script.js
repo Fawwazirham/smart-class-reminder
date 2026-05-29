@@ -197,56 +197,42 @@ function sembunyikanTombolMatikanAlarm() {
     if (btn) btn.remove();
 }
  
-// CEK & KIRIM NOTIF + ALARM
-//
-// Contoh kelas jam 10:00, prep=20, travel=10:
-//   mulaiDetik      = 10:00 = 36000 detik
-//   siapDetik       = 10:00 - (20+10)mnt = 09:30 = 34200 detik  alarm 2
-//   berangkatDetik  = 10:00 - 10mnt      = 09:50 = 35400 detik  alarm 3
-//   earlyDetik      = 10:00 - 50mnt      = 09:10 = 33000 detik  alarm 1
+// ANTI-DUPLIKAT NOTIF + ALARM
 const notifTerkirim = new Set();
  
-function cekDanKirimNotif(kelas, skrgDetik) {
-    const travel = getTravelTime();
-    const prep   = getPrepTime();
+function cekDanKirimNotif(kelas, sisaBerangkatDetik) {
+    const k50  = `${kelas.matkul}-${kelas.jamMulai}-50`;
+    const k30  = `${kelas.matkul}-${kelas.jamMulai}-30`;
+    const kGo  = `${kelas.matkul}-${kelas.jamMulai}-go`;
  
-    const mulaiDetik     = toMenit(kelas.jamMulai) * 60;
-    const earlyDetik     = mulaiDetik - 50 * 60;          // alarm 1: 50 menit sebelum kelas
-    const siapDetik      = mulaiDetik - (prep + travel) * 60; // alarm 2: mulai siap-siap
-    const berangkatDetik = mulaiDetik - travel * 60;       // alarm 3: berangkat!
- 
-    const k1 = `${kelas.matkul}-${kelas.jamMulai}-early`;
-    const k2 = `${kelas.matkul}-${kelas.jamMulai}-siap`;
-    const k3 = `${kelas.matkul}-${kelas.jamMulai}-berangkat`;
- 
-    // Alarm 1 — 50 menit sebelum kelas
-    if (skrgDetik >= earlyDetik && skrgDetik < earlyDetik + 30 && !notifTerkirim.has(k1)) {
-        notifTerkirim.add(k1);
-        kirimNotifikasi(
-            "50 Menit Sebelum Kelas",
-            `${kelas.matkul} jam ${kelas.jamMulai}. Bersiaplah sebentar lagi!`
-        );
-        mulaiAlarm(POLA_PERINGATAN);
+    // 50 menit sebelum berangkat (window 30 detik)
+    if (sisaBerangkatDetik <= 50*60 && sisaBerangkatDetik > 50*60 - 30 && !notifTerkirim.has(k50)) {
+        notifTerkirim.add(k50);
+        kirimNotifikasi("⏰ 50 Menit Lagi!", `${kelas.matkul} jam ${kelas.jamMulai} di ${kelas.ruangan}. Mulai siap-siap ya!`);
+        mulaiAlarm("warning");
     }
  
-    // Alarm 2 — waktunya mulai siap-siap (prep + travel sebelum kelas)
-    if (skrgDetik >= siapDetik && skrgDetik < siapDetik + 30 && !notifTerkirim.has(k2)) {
-        notifTerkirim.add(k2);
-        kirimNotifikasi(
-            "Waktunya Siap-Siap!",
-            `${kelas.matkul} jam ${kelas.jamMulai}. Mulai mandi & bersiap sekarang!`
-        );
-        mulaiAlarm(POLA_PERINGATAN);
-    }
+    // siap
+    const waktuSiapDetik = getPrepTime() * 60;
+
+    if (sisaBerangkatDetik <= waktuSiapDetik && sisaBerangkatDetik > waktuSiapDetik - 30 && !notifTerkirim.has(k30)
+) {
+
+    notifTerkirim.add(k30);
+
+    kirimNotifikasi(
+        "🛁 Waktunya Siap-Siap!",
+        `${kelas.matkul} jam ${kelas.jamMulai}. Mulai bersiap sekarang!`
+    );
+
+    mulaiAlarm("warning");
+    }   
  
-    // Alarm 3 — waktunya berangkat (travel sebelum kelas)
-    if (skrgDetik >= berangkatDetik && skrgDetik < berangkatDetik + 30 && !notifTerkirim.has(k3)) {
-        notifTerkirim.add(k3);
-        kirimNotifikasi(
-            "Berangkat Sekarang!",
-            `${kelas.matkul} jam ${kelas.jamMulai} di ${kelas.ruangan}. Jangan telat!`
-        );
-        mulaiAlarm(POLA_BERANGKAT);
+    // Waktunya berangkat!
+    if (sisaBerangkatDetik <= 0 && sisaBerangkatDetik > -30 && !notifTerkirim.has(kGo)) {
+        notifTerkirim.add(kGo);
+        kirimNotifikasi("🚨 Berangkat Sekarang!", `${kelas.matkul} jam ${kelas.jamMulai} di ${kelas.ruangan}. Jangan telat!`);
+        mulaiAlarm("berangkat");
     }
 }
 
@@ -306,6 +292,8 @@ function tampilKelasBerikutnya() {
         }
  
         const sisaBerangkat = berangkatDetik - skrgDetik;
+        const waktuSiapDetik =
+        getPrepTime() * 60;
 
         cekDanKirimNotif(kelas, sisaBerangkat);
 
@@ -313,8 +301,8 @@ function tampilKelasBerikutnya() {
             elTulisan.textContent = "Harus berangkat sekarang!";
             elTimer.textContent   = "BERANGKAT!";
             elTimer.className     = "countdown-timer merah";
-        } else if (sisaBerangkat <= 30 * 60) {
-            elTulisan.textContent = "Berangkat dalam:";
+        } else if (sisaBerangkat <= waktuSiapDetik) {
+            elTulisan.textContent = "Waktunya siap-siap!";
             elTimer.textContent   = formatDurasi(sisaBerangkat);
             elTimer.className     = "countdown-timer oranye";
         } else {
@@ -323,7 +311,8 @@ function tampilKelasBerikutnya() {
             elTimer.className     = "countdown-timer";
         }
     }
- 
+
+
     tickCountdown();
     countdownInterval = setInterval(tickCountdown, 1000);
 }
