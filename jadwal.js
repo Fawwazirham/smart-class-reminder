@@ -132,6 +132,7 @@ document.getElementById("tombol-tambah").addEventListener("click", () => {
     document.getElementById("input-ruangan").value   = "";
     document.getElementById("input-jam-mulai").value  = "";
     document.getElementById("input-jam-selesai").value = "";
+    document.getElementById("input-hari").value = "";
  
     renderList();
     showToast(`"${matkul}" ditambahkan!`);
